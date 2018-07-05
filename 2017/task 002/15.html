@@ -1,0 +1,128 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+</head>
+
+<body>
+
+    <ul id="source">
+        <li>北京空气质量：
+            <b>90</b>
+        </li>
+        <li>上海空气质量：
+            <b>70</b>
+        </li>
+        <li>天津空气质量：
+            <b>80</b>
+        </li>
+        <li>广州空气质量：
+            <b>50</b>
+        </li>
+        <li>深圳空气质量：
+            <b>40</b>
+        </li>
+        <li>福州空气质量：
+            <b>32</b>
+        </li>
+        <li>成都空气质量：
+            <b>90</b>
+        </li>
+    </ul>
+
+    <ul id="resort">
+        <!--
+    <li>第一名：北京空气质量：<b>90</b></li>
+    <li>第二名：北京空气质量：<b>90</b></li>
+    <li>第三名：北京空气质量：<b>90</b></li>
+     -->
+
+    </ul>
+
+    <button id="sort-btn">排序</button>
+
+    <script type="text/javascript">
+        /**
+         * getData方法
+         * 读取id为source的列表，获取其中城市名字及城市对应的空气质量
+         * 返回一个数组，格式见函数中示例
+         */
+
+        function getData() {
+            newList = [];
+            var liObjs = document.getElementsByTagName("li");
+            for (let i = 0; i < liObjs.length; i++) {
+
+                var liObj = liObjs[i];
+                var info = liObj.innerHTML.substring(0, 2);
+                var number = liObj.getElementsByTagName("b")[0].innerHTML;
+                number = parseInt(number);
+                newList.push([info, number]);
+
+            }
+            return newList;
+        }
+
+        function sortAqiData(data) {
+            data.sort(function (a, b) {
+                return a[1] < b[1];
+            })
+            return data;
+        }
+
+        function render(data) {
+            for (let i = 0; i < data.length; i++) {
+                var liObj = document.createElement("li");
+                document.getElementById("resort").appendChild(liObj);
+                var rank = i + 1;
+                switch (rank) {
+                    case 1:
+                        rankNumber = "一"
+                        break;
+                    case 2:
+                        rankNumber = "二"
+                        break;
+                    case 3:
+                        rankNumber = "三"
+                        break;
+                    case 4:
+                        rankNumber = "四"
+                        break;
+                    case 5:
+                        rankNumber = "五"
+                        break;
+                    case 6:
+                        rankNumber = "六"
+                        break;
+                    case 7:
+                        rankNumber = "七"
+                        break;
+                    default:
+                        break;
+                }
+                liObj.innerHTML = "第" + rankNumber + "名：" +
+                    data[i][0] + "空气质量：" + "<b>" + data[i][1] + "</b>";
+            }
+        }
+        // render(newList);
+        function btnHandle() {
+            var aqiData = getData();
+            aqiData = sortAqiData(aqiData);
+            render(aqiData);
+        }
+
+
+        function init() {
+            document.getElementById('sort-btn').onclick = function () {
+                btnHandle();
+                document.getElementById('sort-btn').disabled = "disabled";
+            }
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
