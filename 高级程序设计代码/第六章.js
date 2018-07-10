@@ -1,6 +1,5 @@
 //6.1
 
-
 // var person = new Object();
 // person.name = "Nicholas";
 // person.age = 26;
@@ -15,8 +14,6 @@
 //         alert(this.name);
 //     }
 // };
-
-
 
 //6.1.1
 
@@ -70,9 +67,7 @@
 // book.year = 2005;
 // console.log(book.edition);
 
-
 //6.1.2
-
 
 // var book = {};
 // Object.defineProperties(book, {
@@ -98,7 +93,6 @@
 // });
 
 //6.1.3 读取属性的特性
-
 
 // var book = {};
 // Object.defineProperties(book, {
@@ -163,43 +157,166 @@
 
 //6.2.3 原型模式
 
-function Person() {}
-Person.prototype.name = "sad";
-Person.prototype.age = 22;
-Person.prototype.job = "sda";
-Person.prototype.sayName = function () {
-    console.log(this.name);
-};
-var person1 = new Person();
-person1.sayName();
-console.log(Person.prototype.isPrototypeOf(person1));
-console.log(Object.getPrototypeOf(person1).name);
+// function Person() {}
+// Person.prototype.name = "sad";
+// Person.prototype.age = 22;
+// Person.prototype.job = "sda";
+// Person.prototype.sayName = function() {
+//   console.log(this.name);
+// };
+// var person1 = new Person();
+// person1.sayName();
+// console.log(Person.prototype.isPrototypeOf(person1));
+// console.log(Object.getPrototypeOf(person1).name);
 
-person1.name = "sadaa";
-console.log(person1.name);
-delete person1.name;
-console.log(person1.name);
-console.log("name" in person1);
-//判断name是否存在 object的原型中 
-function hasPrototypeProperty(object, name) {
-    return !object.hasOwnProperty(name) && (name in object);
+// person1.name = "sadaa";
+// console.log(person1.name);
+// delete person1.name;
+// console.log(person1.name);
+// console.log("name" in person1);
+// //判断name是否存在 object的原型中
+// function hasPrototypeProperty(object, name) {
+//   return !object.hasOwnProperty(name) && name in object;
+// }
+
+// function Person() {}
+// Person.prototype = {
+//   name: "Nicholas",
+//   age: 29,
+//   job: "ssss",
+//   sayName: function() {
+//     console.log(this.name);
+//   }
+// };
+// //重构构造函数
+// Object.defineProperty(Person.prototype, "constructor", {
+//   enumerable: false,
+//   value: Person
+// });
+// console.log(Object.keys(Person.prototype));
+// console.log(Object.getOwnPropertyNames(Person.prototype));
+
+//原型的动态性
+// function Person() {}
+// var friend = new Person();
+// Person.prototype = {
+//   constructor: Person,
+//   name: "Nicholas",
+//   age: 29,
+//   sayName: function() {
+//     console.log(this.name);
+//   }
+// };
+// friend.sayName();//报错 ,因为指向最初的原型
+
+//原生对象的原型
+// String.prototype.startsWith = function(text) {
+//   return this.indexOf(text) == 0;
+// };
+// var msg = "Hello world";
+// console.log(msg.startsWith("Hello"));
+
+// //原型对象的问题
+// function Person() {}
+// Person.prototype = {
+//   constructor: Person,
+//   name: "sdas",
+//   friends: ["aa", "dd"],
+//   sayName: function() {
+//     console.log(this.name);
+//   }
+// };
+// var person1 = new Person();
+// var person2 = new Person();
+// console.log(person1.friends);
+// console.log(person2.friends);
+// person1.sayName();
+
+//组合使用构造函数和原型模式
+// function Person(name, age, job) {
+//   this.name = name;
+//   this.age = age;
+//   this.job = job;
+//   this.firend = ["s", "sa"];
+// }
+// Person.prototype = {
+//   constructor: Person,
+//   sayName: function() {
+//     console.log(this.name);
+//   }
+// };
+// var person1 = new Person("Nicholas", 11, "sadsa", "sasss");
+// person1.firend.push("sdd");
+// console.log(person1.firend);
+
+//6.2.5 动态原型模式
+// function Person(name, age, job) {
+//   //属性
+//   this.name = name;
+//   this.age = age;
+//   this.job = job;
+//   //方法
+//   if (typeof this.sayName != "function") {
+//     Person.prototype.sayName = function() {
+//       console.log(this.name);
+//     };
+//   }
+// }
+// var person1 = new Person("Nicholas", 11, "sadsa");
+// person1.sayName();
+// console.log(person1.sayName instanceof Function);
+
+//6.2.6寄生构造函数模式
+// function Person(name, age, job) {
+//   var o = new Object();
+//   o.name = name;
+//   o.age = age;
+//   o.job = job;
+//   o.sayName = function() {
+//     console.log(this.name);
+//   };
+//   return o;
+// }
+// var friend = new Person("sdad", 22, "sadasd");
+// friend.sayName();
+
+//6.2.7稳妥构造函数
+// function Person(name, age, job) {
+//   var o = new Object();
+//   var name = name,
+//     age = age,
+//     job = job;
+//     o.sayName = function () {
+//         return name;
+//     }
+//     var piliv = function () {
+//         return name+ "  "+ age+ "  "+ job;
+//     }
+//     var a = new Array();
+//     a[0] = piliv;
+//     a[1] = o;
+//     return a;
+// }
+// var person1 = new Person("12",33,"23");
+// console.log(person1[0]());
+// console.log(person1[1].sayName());
+
+
+//6.3继承
+//6.3.1 原型链
+function SuperType() {
+    this.property = true;
 }
-
-function Person() {
-}
-Person.prototype = {
-    name: "Nicholas",
-    age: 29,
-    job: "ssss",
-    sayName: function () {
-        console.log(this.name);
-    }
-};
-//重构构造函数
-Object.defineProperty(Person.prototype,"constructor",{
-    enumerable:false,
-    value:Person
-});
-console.log(Object.keys(Person.prototype));
-console.log(Object.getOwnPropertyNames(Person.prototype));
-
+SuperType.prototype.getSuperValue = function () {
+    return this.property;
+  }
+  function SubType(){
+      this.subproperty = false;
+  }
+//继承了SuperType
+SubType.prototype = new SuperType();
+SubType.prototype.getSubValue = function () {
+    return this.subproperty;
+  }
+var instance  = new SubType();
+console.log(instance.getSuperValue());
