@@ -1,3 +1,10 @@
+/**
+ * 
+ * @param {
+ * 红宝书的源代码如下
+ * 
+ * } name 
+ */
 //6.1
 
 // var person = new Object();
@@ -304,19 +311,137 @@
 
 //6.3继承
 //6.3.1 原型链
-function SuperType() {
-    this.property = true;
-}
-SuperType.prototype.getSuperValue = function () {
-    return this.property;
-  }
-  function SubType(){
-      this.subproperty = false;
-  }
+// function SuperType() {
+//     this.property = true;
+// }
+// SuperType.prototype.getSuperValue = function () {
+//     return this.property;
+//   }
+//   function SubType(){
+//       this.subproperty = false;
+//   }
 //继承了SuperType
-SubType.prototype = new SuperType();
-SubType.prototype.getSubValue = function () {
-    return this.subproperty;
-  }
-var instance  = new SubType();
-console.log(instance.getSuperValue());
+// SubType.prototype = new SuperType();
+// SubType.prototype.getSubValue = function () {
+//     return this.subproperty;
+//   }
+// var instance  = new SubType();
+// console.log(instance.getSuperValue());
+
+// 原型链的问题
+// function SuperType() {
+//     this.colors = ["red","blue","green"];
+// }
+// function SubType() {
+
+// }
+// SubType.prototype = new SuperType();
+// var instance = new SubType();
+// instance.colors.push("black");
+// console.log(instance.colors);
+// var instance1 = new SubType();
+// console.log(instance1.colors);
+
+//6.3.3 组合继承
+// function SuperType(name) {
+//     this.name = name;
+//     this.colors = ["red", "blue"];
+// }
+// SuperType.prototype.sayName = function () {
+//     console.log(this.name);
+// }
+
+// function SubType(name, age) {
+//     SuperType.call(this, name);
+//     this.age = age;
+// }
+
+// SubType.prototype = new SuperType();
+// SubType.prototype.constructor = SubType;
+// SubType.prototype.sayAge = function () {
+//     console.log(this.age);
+// }
+
+// var instance1 = new SubType("asd",11);
+// instance1.colors.push("balck");
+// console.log(instance1.colors);
+
+//6.3.4原型式继承
+
+// function object(o) {
+//     function F() {  }
+//     F.prototype = o;
+//     return new F();
+// }
+
+// var person = {
+//     name : "Nicholas",
+//     friends:["Shelby","Count"]
+// };
+
+// var anotherPerson = Object.create(person,{
+//     name:{
+//         value:"sdasd"
+//     }
+// });
+// anotherPerson.name = "GGG";
+// anotherPerson.friends.push("sad");
+// console.log(person.friends);
+// console.log(anotherPerson.name);
+
+
+//6.3.5寄生式继承
+
+// function createAnother(original) {
+//     var clone = Object.create(original);
+//     clone.sayHi = function () {
+//         console.log("hi");
+//     };
+//     return clone;
+// }
+// var person = {
+//     name:"Nicholas",
+//     friends: ["asd","sadsa"]
+// };
+// var anotherPerson = createAnother(person);
+// anotherPerson.sayHi();
+
+
+//6.3.6 寄生组合式继承
+
+function SuperType(name) {
+    this.name = name;
+    this.colors = ["red", "yellow", "green"];
+}
+SuperType.prototype.sayName = function () {
+    console.log("sss");
+}
+
+function SubType(name, age) {
+    SuperType.call(this, name);
+    this.age = age;
+}
+
+function inheritPrototype(SubType, SuperType) {
+    var prototype = Object.create(SuperType.prototype);
+    prototype.constructor = SubType;
+    SubType.prototype = prototype;
+}
+inheritPrototype(SubType, SuperType);
+SubType.prototype.sayAge = function () {
+    console.log(this.age);
+};
+
+var instance = new SubType("aaa",11);
+instance.sayAge();
+
+/**
+ * 总结:
+ * 1创建对象的几种方式:工厂模式,构造函数,原型模式
+ * 2继承的实现方式:原型式继承,组合继承(常用),寄生式继承,寄生组合式继承(比较完美)
+ * 
+ * 基本类型 null, undefined,number ,string,
+ * 
+ * 
+ * 
+ *  */
