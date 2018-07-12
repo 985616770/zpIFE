@@ -99,6 +99,10 @@ nav ul li:hover {
     width: 100px;
     height: 30px;
     margin-top:5px; 
+    
+}
+.inner button:hover{
+    cursor: pointer;
 }
 .inner div{
     margin: 30px 0;
@@ -119,6 +123,9 @@ nav ul li:hover {
     width: auto;
     left: 70%;
     text-align: center;
+}
+.right-aside img{
+    margin:50px 0; 
 }
 span{
     color:rgb(173, 144, 62);
