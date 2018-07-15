@@ -224,4 +224,3 @@ console.log(singleton);
 //     };
 //     return app;
 // }();
-
