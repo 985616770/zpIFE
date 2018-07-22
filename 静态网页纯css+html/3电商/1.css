@@ -127,7 +127,6 @@ nav img:nth-child(4) {
 .part1 {
     width: 1000px;
     height: 360px;
-    
 }
 
 .part1 .p-part1 {
@@ -137,7 +136,6 @@ nav img:nth-child(4) {
     padding-left: 10px;
     height: 30px;
     margin-top: 10px;
-    
 }
 
 .part1 main {
@@ -312,11 +310,11 @@ nav img:nth-child(4) {
 }
 
 /**/
+
 .part3 {
     width: 1000px;
     height: 360px;
     position: relative;
-    
 }
 
 .part3 .p-part3 {
@@ -326,7 +324,6 @@ nav img:nth-child(4) {
     padding-left: 10px;
     height: 30px;
     margin-top: 30px;
-    
 }
 
 .part3 main {
@@ -393,8 +390,6 @@ nav img:nth-child(4) {
     overflow: hidden;
 }
 
-
-
 .part3 aside ul {
     list-style: none;
     text-align: center;
@@ -415,66 +410,79 @@ nav img:nth-child(4) {
     text-decoration: underline;
     color: red;
 }
-#a{
-    border-bottom:1px solid rgb(156, 153, 153); 
+
+#a {
+    border-bottom: 1px solid rgb(156, 153, 153);
     padding: 5px;
 }
-#s{
-float: left;
-margin: 5px;
-}
-#d{
-font-size: 12px;
-color: rgb(161, 154, 154);
-padding-bottom:20px; 
-border-bottom:1px solid rgb(156, 153, 153); 
-}
-/*part4*/
-.part4{
 
+#s {
+    float: left;
+    margin: 5px;
 }
-.part4 p{
-    margin-top:10px; 
+
+#d {
+    font-size: 12px;
+    color: rgb(161, 154, 154);
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(156, 153, 153);
+}
+
+/*part4*/
+
+.part4 {}
+
+.part4 p {
+    margin-top: 10px;
     float: left;
     width: 80px;
     height: 20px;
 }
-.part4 ul{
+
+.part4 ul {
     list-style: none;
     margin-left: 80px;
 }
-.part4 ul li{
+
+.part4 ul li {
     float: left;
-    margin: 5px;   
+    margin: 5px;
 }
-.part4 ul li a{
+
+.part4 ul li a {
     text-decoration: none;
     color: black;
 }
-.part4 ul li a:hover{
+
+.part4 ul li a:hover {
     color: red;
     text-decoration: underline;
 }
 
 /*页尾*/
-footer{
+
+footer {
     text-align: center;
     clear: both;
 }
-footer hr{
+
+footer hr {
     height: 5px;
     background: rgb(78, 81, 221);
 }
-footer ul{
-list-style: none;
-text-align: center;
-margin: 0 auto;
+
+footer ul {
+    list-style: none;
+    text-align: center;
+    margin: 0 auto;
 }
-footer ul li{
-display: inline-block;
-margin: 15px;
-cursor: pointer;
+
+footer ul li {
+    display: inline-block;
+    margin: 15px;
+    cursor: pointer;
 }
-footer p:nth-child(3){
+
+footer p:nth-child(3) {
     clear: both;
 }

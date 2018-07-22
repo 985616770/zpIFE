@@ -2,7 +2,7 @@
  * @Author: xuanjidd 
  * @Date: 2018-07-20 08:50:10 
  * @Last Modified by: xaunjidd
- * @Last Modified time: 2018-07-21 16:16:15
+ * @Last Modified time: 2018-07-22 17:34:16
  * 
  *第十章Dom
  */
@@ -91,3 +91,142 @@ element.className = "message";
 var textNode = document.createTextNode("hello world");
 element.appendChild(textNode);
 document.body.appendChild(element);
+
+//规范文本节点
+
+var element = document.createElement("div");
+element.className = "message";
+
+var textNode = document.createTextNode("hello world");
+element.appendChild(textNode);
+
+var anotherTextNode = document.createTextNode("Yippee");
+element.appendChild(anotherTextNode);
+
+document.body.appendChild(element);
+
+console.log(element.childNodes.length);
+element.normalize();
+
+//分割文本节点
+var element = document.createElement("div");
+element.className = "message";
+
+var textNode = document.createTextNode("hello world");
+element.appendChild(textNode);
+
+var anotherTextNode = document.createTextNode("Yippee");
+element.appendChild(anotherTextNode);
+
+document.body.appendChild(element);
+
+console.log(element.childNodes.length);
+var newNode = element.firstChild.splitText(5);
+
+
+
+//Comment类型 ---注释节点
+var div = document.getElementById("myDiv");
+var comment = div.firstChild;
+console.log(comment.data);
+/* <div id = "myDiv"><!--A comment--></div> */
+var comment = document.createComment("A comment ");
+
+
+//CDATASection类型 ---基于XML的文档注释
+/* <div id = "myDiv"><![CDATA[A comment]]></div> */
+document.createCDATASection("传入节点内容")
+
+//DocumentType类型 --- 文档类型文本
+
+// <!DOCTYPE HTML PUPILC "-//W3C//DTD HTML 4.01//EN">
+
+//DocumentFragment 类型 --- "轻量级" 文档 插入的是子孙代 且本身不占据文档位置
+
+var fragment = document.createDocumentFragment();
+var ul = document.getElementById("myList");
+var li = null;
+
+for (var i = 0; i < 3; i++) {
+    li = document.createElement("li");
+    li.appendChild(document.createTextNode("Item " + (i + 1)));
+    fragment.appendChild(li);
+}
+ul.appendChild(fragment);
+
+
+//attr 类型
+
+
+var attr = document.createAttribute("align");
+attr.value = "left";
+element.setAttributeNode(attr);
+console.log(element.attributes["align"].value);
+
+//DOM操作技术
+
+//动态脚本
+
+var script = document.createElement("script");
+script.type = "text/javascript";
+script.src = "client.js";
+document.body.appendChild(script);
+
+function loadScript(url) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = url;
+    document.body.appendChild(script);
+}
+
+function loadScriptString(code) {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    try {
+        script.appendChild(document.createTextNode(code)); //ie不支持
+    } catch (ex) {
+        script.text = code;
+    }
+    document.body.appendChild(script);
+}
+
+//动态样式
+
+var link = document.createElement("link");
+link.rel = "stylesheet";
+link.type = "text/css";
+link.href = "styles.css";
+var head = document.getElementsByClassName("head")[0];
+head.appendChild(link);
+
+function loadStyles(url) {
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = url;
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(link);
+}
+
+
+function loadStyleString(css) {
+    var style = document.createElement("link");
+    style.type = "text/css";
+    try {
+        style.appendChild(document.createTextNode(css));
+    } catch (ex) {
+        style.styleSheet.cssText = css;
+    }
+    var head = document.getElementsByTagName("head")[0];
+    head.appendChild(style);
+}
+
+//操作表格
+
+var table = document.createElement("table");
+table.border = 1;
+table.width = "100%";
+
+var tbody = document.createElement("tbody");
+table.appendChild(tbody);
+
