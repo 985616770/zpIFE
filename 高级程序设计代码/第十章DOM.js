@@ -2,7 +2,7 @@
  * @Author: xuanjidd 
  * @Date: 2018-07-20 08:50:10 
  * @Last Modified by: xaunjidd
- * @Last Modified time: 2018-07-22 17:34:16
+ * @Last Modified time: 2018-07-23 16:16:24
  * 
  *第十章Dom
  */
@@ -230,3 +230,32 @@ table.width = "100%";
 var tbody = document.createElement("tbody");
 table.appendChild(tbody);
 
+tbody.insertRow(0);
+tbody.rows[0].insertCell(0);
+tbody.rows[0].cells[0].appendChild(document.createTextNode("Cell 1,1"));
+tbody.rows[0].insertCell(1);
+tbody.rows[0].cells[1].appendChild(document.createTextNode("Cell 2,1"));
+
+tbody.insertRow(1);
+tbody.rows[1].insertCell(0);
+tbody.rows[1].cells[0].appendChild(document.createTextNode("Cell 1,2"));
+tbody.rows[1].insertCell(1);
+tbody.rows[1].cells[1].appendChild(document.createTextNode("Cell 2,2"));
+document.body.appendChild(table);
+
+//10.2.4nodelist
+
+var divs = document.getElementsByTagName("div"),
+    i,
+    div;
+
+// for (var i = 0; i < divs.length; /*会导致无限循环*/ i++) {
+//     div = document.createElement("div");
+//     document.body.appendChild(div);
+// }
+
+
+for (var i = 0, len = divs.length; i < len;i++) {
+    div = document.createElement("div");
+    document.body.appendChild(div);
+}
