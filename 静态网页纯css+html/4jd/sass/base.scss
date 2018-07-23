@@ -235,20 +235,23 @@ header {
         position: absolute;
         left: 0;
         top: 0;
-        transform: rotateX(100);
+        
         .ad-l {
             position: absolute;
             left: -250px;
             top: 0;
         }
         .ad-r {
-            display: none;
+            height: 480px;
+            width:0;
             position: absolute;
             left: 0;
             top: 0;
+            transition: all 1s;
         }
         &:hover .ad-r {
-            display: inline-block;
+            width: 990px;
+            
         }
     }
     .header-t-left {

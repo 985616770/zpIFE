@@ -253,7 +253,6 @@ header div i {
   position: absolute;
   left: 0;
   top: 0;
-  transform: rotateX(100);
 }
 
 .header-t #header-t-logo .ad-l {
@@ -263,14 +262,16 @@ header div i {
 }
 
 .header-t #header-t-logo .ad-r {
-  display: none;
+  height: 480px;
+  width: 0;
   position: absolute;
   left: 0;
   top: 0;
+  transition: all 1s;
 }
 
 .header-t #header-t-logo:hover .ad-r {
-  display: inline-block;
+  width: 990px;
 }
 
 .header-t .header-t-left {
