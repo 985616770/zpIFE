@@ -1,29 +1,9 @@
-//字体图标
 img {
-    /* display: block; */
     vertical-align: top;
-    /* 解决图片底测有空白缝隙的问题 */
-}
-
-.w {
-    /* 版心的公共类 */
-    width: 1190px;
-    /* 京东的版心是 1190 */
-    margin: 0 auto;
-}
-
-.fl {
-    /*  浮动的公共类 */
-    float: left;
-}
-
-.fr {
-    float: right;
 }
 
 a {
     text-decoration: none;
-    /* 取消下划线 */
     font-size: 12px;
     color: #999;
 }
@@ -37,33 +17,10 @@ i {
     font-style: normal;
 }
 
-blockquote,
-body,
-button,
-dd,
-dl,
-dt,
-fieldset,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-input,
-legend,
-li,
-ol,
-p,
-pre,
-td,
-textarea,
-th,
-ul {
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 input,
@@ -109,6 +66,9 @@ header {
             float: right;
             font-size: 30px;
         }
+    }
+    #close{
+        transition: all 2s;
     }
 }
 
@@ -174,6 +134,7 @@ header {
                 height: 32px;
                 width: 30px;
                 cursor: pointer;
+                margin-left: -10px;
                 i {
                     color: #e3e4e5;
                 }
@@ -184,6 +145,18 @@ header {
                 border: 1px solid rgba(116, 112, 112, 0.596);
                 padding: 5px 30px;
                 margin: 0 20px;
+                position: relative;
+                div {
+                    position: absolute;
+                    border-radius: 10px;
+                    background: #c81623;
+                    height: 17px;
+                    width: 17px;
+                    left: 130px;
+                    top: 0px;
+                    text-align: center;
+                    color: white;
+                }
             }
             .erweima {
                 float: right;
@@ -235,7 +208,6 @@ header {
         position: absolute;
         left: 0;
         top: 0;
-        
         .ad-l {
             position: absolute;
             left: -250px;
@@ -243,7 +215,7 @@ header {
         }
         .ad-r {
             height: 480px;
-            width:0;
+            width: 0;
             position: absolute;
             left: 0;
             top: 0;
@@ -251,14 +223,136 @@ header {
         }
         &:hover .ad-r {
             width: 990px;
-            
         }
     }
     .header-t-left {
-        @include wh(190px,
+        @include wh(180px,
         480px);
         background: #5c5a5a;
+        font-size: 18px;
+        padding: 5px;
+        ul {
+            li {
+                margin: 10px;
+                color: white;
+                a {
+                    color: #eee;
+                    &:hover {
+                        color: red;
+                    }
+                }
+            }
+        }
     }
     .header-t-middle {}
     .header-t-right {}
+}
+
+footer {
+    margin-top: 100px;
+    background: #dedede;
+    text-align: center;
+    .footer-f {
+        @include wh(1200px,
+        108px);
+        margin: 0 auto;
+        ul {
+            display: flex;
+            li {
+                flex: 1;
+                height: 42px;
+                width: 215px;
+                line-height: 42px;
+                font-weight: bolder;
+                margin: 40px 10px;
+                h1 {
+                    background: url(../images/ico.png) no-repeat;
+                    @include wh(36px,
+                    42px);
+                    float: left;
+                    margin: 0;
+                }
+                p {
+                    margin-left: 50px;
+                }
+                &:nth-child(2) h1 {
+                    background-position: 0 -42px;
+                }
+                &:nth-child(3) h1 {
+                    background-position: 0 -85px;
+                }
+                &:nth-child(4) h1 {
+                    background-position: 0 -128px;
+                }
+            }
+        }
+    }
+    .footer-s {
+        @include wh(1200px,
+        150px);
+        margin: 0 auto;
+        border-bottom: 1px solid #777676;
+        .footer-s-main {
+            float: left;
+            dl {
+                display: inline-block;
+                width: 192px;
+            }
+        }
+        .footer-s-aside {
+            background: url(../images/ico_footer.png) no-repeat;
+            float: right;
+            width: 200px;
+            height: 150px;
+        }
+    }
+    .footer-t {
+        @include wh(1200px,
+        42px);
+        margin: 0 auto;
+        ul {
+            text-align: center;
+            li {
+                display: inline-block;
+                margin: 0px 5px;
+            }
+        }
+        .xiangan {
+            width: 1px;
+            height: 10px;
+            background: #777676;
+            margin-top: 20px;
+        }
+    }
+    &>p {
+        color: #5c5a5a;
+        font-size: 13px;
+    }
+    .yewei{
+        margin-top: 10px;
+        p{
+            display: inline-block;
+            background: url(../images/ico_footer.png) no-repeat;
+            @include wh(103px,33px );
+            cursor: pointer;
+            &:nth-child(1){
+                background-position: 0 -150px;
+            }
+            &:nth-child(2){
+                background-position: -103px -150px;
+            }
+            &:nth-child(3){
+                background-position: 0px -184px;
+            }
+            &:nth-child(4){
+                background-position: -103px -184px;
+            }
+            &:nth-child(5){
+                background-position: 0 -150px;
+            }
+            &:nth-child(6){
+                background-position: -103px -216px;
+            }
+        }
+    }
 }
