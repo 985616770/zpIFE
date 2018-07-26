@@ -31,10 +31,10 @@ body {
 
 header {
   @include box(0 auto, 0);
-  @include wh(100%, 350px);
+  @include wh(100%, 3500px);
   position: relative;
   text-align: center;
-  background: rgb(73, 241, 199);
+  background: url(images/daylight-environment-forest-459225.jpg) no-repeat center;
   cursor: pointer;
 }
 
