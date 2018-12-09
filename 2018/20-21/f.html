@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>IFE ECMAScript</title>
+    <style>
+      select {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <label> <input id="school" name="status" type="radio" /> School </label>
+    <label> <input id="company" name="status" type="radio" /> Company </label>
+
+    <select id="school-select">
+      <option>北京邮电大学</option>
+      <option>黑龙江大学</option>
+      <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">
+      <option>百度</option>
+      <option>爱奇艺</option>
+    </select>
+    <div>
+      <input id="name" type="text" /> <button id="submit-btn">Submit</button>
+    </div>
+
+    <script>
+      function $(id) {
+        return document.getElementById(id);
+      }
+
+      $('submit-btn').addEventListener('click', function() {
+        console.log($('name').value);
+      });
+      $('name').addEventListener('keydown', function(e) {
+        if (e.keyCode === 13) {
+          console.log($('name').value);
+        } else if (e.keyCode === 27) {
+          $('name').value = '';
+        } else {
+          return;
+        }
+      });
+
+      $('school').addEventListener('click', function() {
+        $('school-select').style.display = 'block';
+        $('company-select').style.display = 'none';
+      });
+
+      $('company').addEventListener('click', function() {
+        $('school-select').style.display = 'none';
+        $('company-select').style.display = 'block';
+      });
+    </script>
+  </body>
+</html>
