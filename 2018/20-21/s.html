@@ -32,16 +32,17 @@
     <p class="color-picker"></p>
 
     <script>
-      var list = document.querySelectorAll('li');
-      for (var i = (i = 0), len = list.length; i < len; i++) {
-        list[i].onclick = function(e) {
-          var t = e.target;
-          var c = t.style.backgroundColor;
-          var p = document.getElementsByClassName('color-picker')[0];
-          p.innerHTML = c;
-          p.style.color = c;
-        };
-      }
+      var ul = document.querySelector('ul');
+      ul.addEventListener('click', function(e) {
+        var li = e.target;
+        var s = li.style.backgroundColor;
+        var p = document.getElementsByClassName('color-picker')[0];
+        p.innerHTML = s;
+        p.style.color = s;
+        console.log(e);
+      });
+
+      
     </script>
   </body>
 </html>
