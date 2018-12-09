@@ -31,7 +31,7 @@
         } else if (fade.innerText === '淡入') {
           var opc = parseFloat(obj.style.opacity);
           var fadeOut = setInterval(function() {
-            if (obj.style.opacity <= parseInt(1)) {
+            if (obj.style.opacity <= 1) {
               console.log(opc);
               opc += 0.1;
               obj.style.opacity = opc;

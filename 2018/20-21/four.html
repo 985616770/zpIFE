@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .img {
+        background-image: url('1.jpg');
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        height: 480px;
+        width: 480px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="img" class="img"></div>
+    <script>
+      var img = document.getElementById('img');
+      var count = 0;
+      var mark = 0;
+
+      var send = setInterval(function() {
+        if (mark == 0) {
+          var currentPoistion = 480 * count++;
+        }
+        if (mark == 1) {
+          var currentPoistion = 480 * count--;
+        }
+        img.style.backgroundPositionY = `-${currentPoistion}px`;
+        if (count == 16) {
+          mark = 1;
+        }
+        if (count == 1) {
+          mark = 0;
+        }
+      }, 100);
+    </script>
+  </body>
+</html>
