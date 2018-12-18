@@ -98,22 +98,52 @@
       };
 
       $('b7').onclick = function() {
-         if (choice[0].checked) {
-          res.innerHTML = t_a.value.split();
+        if (choice[0].checked) {
+          res.innerHTML = t_a.value.split(/\r*\n/).length;
         } else {
-          res.innerHTML = t_b.value.slice(num_a.value, num_b.value);
+          res.innerHTML = t_b.value.split(/\r*\n/).length;
         }
       };
 
-      $('b8').onclick = function() {};
+      $('b8').onclick = function() {
+        if (choice[0].checked) {
+          res.innerHTML = t_a.value.substr(num_a.value, num_b.value);
+        } else {
+          res.innerHTML = t_b.value.substr(num_a.value, num_b.value);
+        }
+      };
 
-      $('b9').onclick = function() {};
+      $('b9').onclick = function() {
+        if (choice[0].checked) {
+          res.innerHTML = t_a.value.toUpperCase();
+        } else {
+          res.innerHTML = t_b.value.toUpperCase();
+        }
+      };
 
-      $('b10').onclick = function() {};
+      $('b10').onclick = function() {
+        if (choice[0].checked) {
+          res.innerHTML = t_a.value.toLowerCase();
+        } else {
+          res.innerHTML = t_b.value.toLowerCase();
+        }
+      };
 
-      $('b11').onclick = function() {};
+      $('b11').onclick = function() {
+        if (choice[0].checked) {
+          res.innerHTML = t_a.value.split(' ').join('');
+        } else {
+          res.innerHTML = t_b.value.split(' ').join('');
+        }
+      };
 
-      $('b12').onclick = function() {};
+      $('b12').onclick = function() {
+        if (choice[0].checked) {
+          res.innerHTML = t_a.value.replace(/a/g, t_b.value);
+        } else {
+          res.innerHTML = t_b.value.replace(/a/g, t_a.value);
+        }
+      };
     </script>
   </body>
 </html>
