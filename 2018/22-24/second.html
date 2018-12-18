@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <label
+        >String A:
+        <input
+          id="radio-a"
+          type="radio"
+          checked="true"
+          name="str-obj"
+          value="a"
+        />
+      </label>
+      <textarea id="str-a"></textarea>
+      <label
+        >String B: <input id="radio-b" type="radio" name="str-obj" value="b" />
+      </label>
+      <textarea id="str-b"></textarea>
+      <label>Num A：<input id="num-a" type="number" value="0"/></label>
+      <label>Num B：<input id="num-b" type="number" value="1"/></label>
+    </div>
+    <div>
+      <button id="b1">获取当前选中输入的内容长度</button>
+      <button id="b2">当前选中输入中的第3个字符</button>
+      <button id="b3">把两个输入框的文字连接在一起输出（concat）</button>
+      <button id="b4">
+        输入B中的内容，在输入A的内容中第一次出现的位置（indexOf）
+      </button>
+      <button id="b5">
+        输入A中的内容，在输入B的内容中最后一次出现的位置（lastIndexOf）
+      </button>
+      <button id="b6">
+        使用slice获取选中输入框内容的部分内容，参数为num-a及num-b
+      </button>
+      <button id="b7">当前选中输入框的行数</button>
+      <button id="b8">
+        使用substr获取选中输入框内容的子字符串，参数为num-a及num-b
+      </button>
+      <button id="b9">把所选输入框中的内容全部转为大写</button>
+      <button id="b10">把所选输入框中的内容全部转为小写</button>
+      <button id="b11">把所选输入框中内容的半角空格全部去除</button>
+      <button id="b12">
+        把所选输入框中内容的a全部替换成另外一个输入框中的内容
+      </button>
+    </div>
+    <p id="result"></p>
+    <script>
+      function $(id) {
+        return document.getElementById(id);
+      }
+      var choice = document.getElementsByName('str-obj');
+      var t_a = $('str-a');
+      var t_b = $('str-b');
+      var num_a = $('num-a')
+      var num_b = $('num-b')
+      var res = $('result');
+      $('b1').onclick = function() {
+        if (choice[0].checked) {
+          res.innerHTML = t_a.value.length;
+        } else {
+          res.innerHTML = t_b.value.length;
+        }
+      };
+      
+      $('b2').onclick = function() {
+        if (choice[0].checked) {
+          res.innerHTML = t_a.value.charAt(2);
+        } else {
+          res.innerHTML = t_b.value.charAt(2);
+        }
+      };
+      
+      $('b3').onclick = function() {
+        res.innerHTML = t_a.value.concat(t_b.value)
+      };
+      
+      $('b4').onclick = function() {
+         res.innerHTML = t_b.value.indexOf(t_a.value) + 1
+      };
+      
+      $('b5').onclick = function() {
+        res.innerHTML = t_b.value.lastIndexOf(t_a.value) + 1
+      };
+      
+      $('b6').onclick = function() {
+        if (choice[0].checked) {
+          res.innerHTML = t_a.value.slice(num_a.value,num_b.value);
+        } else {
+          res.innerHTML = t_b.value.slice(num_a.value, num_b.value);
+        }
+      };
+      
+      $('b7').onclick = function() {};
+      
+      $('b8').onclick = function() {};
+      
+      $('b9').onclick = function() {};
+      
+      
+      $('b10').onclick = function() {};
+      
+      $('b11').onclick = function() {};
+      
+      $('b12').onclick = function() {};
+    </script>
+  </body>
+</html>
