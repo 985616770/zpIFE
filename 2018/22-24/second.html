@@ -58,8 +58,8 @@
       var choice = document.getElementsByName('str-obj');
       var t_a = $('str-a');
       var t_b = $('str-b');
-      var num_a = $('num-a')
-      var num_b = $('num-b')
+      var num_a = $('num-a');
+      var num_b = $('num-b');
       var res = $('result');
       $('b1').onclick = function() {
         if (choice[0].checked) {
@@ -68,7 +68,7 @@
           res.innerHTML = t_b.value.length;
         }
       };
-      
+
       $('b2').onclick = function() {
         if (choice[0].checked) {
           res.innerHTML = t_a.value.charAt(2);
@@ -76,38 +76,43 @@
           res.innerHTML = t_b.value.charAt(2);
         }
       };
-      
+
       $('b3').onclick = function() {
-        res.innerHTML = t_a.value.concat(t_b.value)
+        res.innerHTML = t_a.value.concat(t_b.value);
       };
-      
+
       $('b4').onclick = function() {
-         res.innerHTML = t_b.value.indexOf(t_a.value) + 1
+        res.innerHTML = t_b.value.indexOf(t_a.value) + 1;
       };
-      
+
       $('b5').onclick = function() {
-        res.innerHTML = t_b.value.lastIndexOf(t_a.value) + 1
+        res.innerHTML = t_b.value.lastIndexOf(t_a.value) + 1;
       };
-      
+
       $('b6').onclick = function() {
         if (choice[0].checked) {
-          res.innerHTML = t_a.value.slice(num_a.value,num_b.value);
+          res.innerHTML = t_a.value.slice(num_a.value, num_b.value);
         } else {
           res.innerHTML = t_b.value.slice(num_a.value, num_b.value);
         }
       };
-      
-      $('b7').onclick = function() {};
-      
+
+      $('b7').onclick = function() {
+         if (choice[0].checked) {
+          res.innerHTML = t_a.value.split();
+        } else {
+          res.innerHTML = t_b.value.slice(num_a.value, num_b.value);
+        }
+      };
+
       $('b8').onclick = function() {};
-      
+
       $('b9').onclick = function() {};
-      
-      
+
       $('b10').onclick = function() {};
-      
+
       $('b11').onclick = function() {};
-      
+
       $('b12').onclick = function() {};
     </script>
   </body>
