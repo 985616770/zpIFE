@@ -28,11 +28,11 @@ function toArray(obj) {
   }
   console.log(scoreArray);
 }
-toArray(scoreObject);
+// toArray(scoreObject);
 
 var menuArr = [
   [1, 'Area1', -1],
-  [2, 'Area2', -1],
+  [2, 'Area11', -1],
   [3, 'Area1-1', 1],
   [4, 'Area1-2', 1],
   [5, 'Area2-1', 2],
@@ -40,3 +40,38 @@ var menuArr = [
   [7, 'Area1-2-3', 4],
   [8, 'Area2-2-1', 6]
 ];
+
+function toObject(arr) {
+  var obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    var cur = arr[i];
+    if (cur[2] == -1) {
+      obj[cur[0]] = {
+        name: cur[1],
+        subMenu: {}
+      };
+    } else if (cur[2] == 1) {
+      obj['1']['subMenu'][cur[0]] = {
+        name: cur[1],
+        subMenu: {}
+      };
+    } else if (cur[2] == 2) {
+      obj['2']['subMenu'][cur[0]] = {
+        name: cur[1],
+        subMenu: {}
+      };
+    } else if (cur[2] == 4) {
+      obj['1']['subMenu']['4']['subMenu'][cur[0]] = {
+        name: cur[1],
+        subMenu: {}
+      };
+    } else if (cur[2] == 6) {
+      obj['2']['subMenu']['6']['subMenu'][cur[0]] = {
+        name: cur[1],
+        subMenu: {}
+      };
+    }
+  }
+  return obj;
+}
+console.log(toObject(menuArr));
