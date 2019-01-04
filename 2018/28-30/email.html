@@ -26,11 +26,20 @@
       border-top: 1px solid #eee;
       cursor: pointer;
     }
+    #email-sug-wrapper > li:hover {
+      background: #060;
+    }
+    #email-sug-wrapper > li:first-child {
+      background: #069;
+    }
+    .select {
+      background: #077;
+    }
     </style>
   </head>
   <body>
     <div class="wrapper">
-      <input id="email-input" type="text" value="asd"/>
+      <input id="email-input" type="text" autofocus="autofocus"/>
       <ul id="email-sug-wrapper" class="email-sug"></ul>
     </div>
     <script src="email.js"></script>
