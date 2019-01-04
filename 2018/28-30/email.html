@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .wrapper{
+        margin: 0;
+        padding: 0;
+      }
+    #email-input {
+      width: 300px;
+      height: 30px;
+      border: 1px solid #eee
+    }
+    #email-sug-wrapper {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      width: 300px;
+      border: 1px solid #eee
+    }
+    #email-sug-wrapper > li {
+      border-top: 1px solid #eee;
+      cursor: pointer;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <input id="email-input" type="text" value="asd"/>
+      <ul id="email-sug-wrapper" class="email-sug"></ul>
+    </div>
+    <script src="email.js"></script>
+  </body>
+</html>

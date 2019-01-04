@@ -1,5 +1,5 @@
 function Go() {
-  console.log("Go");
+  console.log('Go');
 }
 
 function GoSteps(n) {
