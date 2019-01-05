@@ -24,7 +24,6 @@ function getUlList(value) {
   let list = ``;
   if (value.indexOf('@') != -1) {
     const index = value.indexOf('@');
-    console.log(index);
     const valueS = value.slice(0, index);
     if (index > -1) {
       var valueL = value.slice(index + 1);
@@ -65,8 +64,9 @@ function showUl(value) {
   setUlList(value);
 }
 
-// 第二步
+// 第二步 鼠标点击确认内容
 
+// 解码HTML 
 function htmlDecode(text) {
   var temp = document.createElement('div');
   temp.innerHTML = text;
@@ -81,7 +81,7 @@ emailSugWrapper.addEventListener('click', function(e) {
   emailInput.focus();
 });
 
-// 第三步
+// 第三步  方向键控制
 let i = 0;
 
 emailInput.onkeydown = function(e) {
@@ -117,5 +117,4 @@ emailInput.onkeydown = function(e) {
     lis[i].className = 'select';
   }
 
-  console.log(e.keyCode);
 };
