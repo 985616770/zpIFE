@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<svg width="325px" height="325px" version="1.1" 
+  xmlns="http://www.w3.org/2000/svg">
+  <!-- <rect x="0" y="0" width="10" height="100" /> -->
+  <line x1="100" x2="500" y1="100" y2="100" style="stroke:rgb(255,0,0);stroke-width:2"/>
+  <circle cx="25" cy="75" r="20" />
+  <path d="M80 230
+           A 45 45, 0, 0, 1, 125 275
+           L 125 230 Z" fill="purple"/>
+  <path d="M230 230
+        A 45 45, 0, 1, 1, 275 275
+           L 275 230 Z" fill="blue"/>
+</svg>
