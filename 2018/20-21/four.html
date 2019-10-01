@@ -25,10 +25,12 @@
 
       var send = setInterval(function() {
         if (mark == 0) {
-          var currentPoistion = 480 * count++;
+          count++;
+          var currentPoistion = 480 * count;
         }
         if (mark == 1) {
-          var currentPoistion = 480 * count--;
+          count--;
+          var currentPoistion = 480 * count;
         }
         img.style.backgroundPositionY = `-${currentPoistion}px`;
         if (count == 16) {
@@ -37,7 +39,7 @@
         if (count == 1) {
           mark = 0;
         }
-      }, 100);
+      }, 50);
     </script>
   </body>
 </html>
